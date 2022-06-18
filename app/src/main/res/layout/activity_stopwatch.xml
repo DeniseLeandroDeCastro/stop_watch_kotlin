@@ -10,6 +10,11 @@
     android:gravity="center"
     tools:context=".StopwatchActivity">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/cronometro"/>
+
     <TextView
         android:id="@+id/time_view"
         android:layout_width="wrap_content"

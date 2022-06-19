@@ -42,3 +42,22 @@ Ao passar de ativada para destruída, a activity aciona métodos importantes do 
   </ol>
 </p>
 </div>
+<div align="middle">
+<h2>O ciclo de vida: a existência em primeiro plano</h2> 
+<img src="https://user-images.githubusercontent.com/29150094/174499447-cc25eba5-8aab-4c77-ae7e-b6e260223087.png" width="450" height="680" />
+</div>
+<div>
+  <p>
+  <ol>
+    <li>A activity é ativada e os métodos onCreate() e onStart() são executados.</li>
+    <li>O método onResume() é executado. Esse método é chamado quando a activity está prestes a aparecer em primeiro plano.</li>
+    <li>O método onPause() é executado quando a activity sai do primeiro plano.</li>
+    <li>Se a activity aparecer novamente em primeiro plano, o método onResume() será chamado.</li>
+    <li>Se a activity deixar de ser visível para o usuário, o método onStop() será chamado.</li>
+    <li>Se a activity ficar novamente visível para o usuário, os métodos onRestart(), onStart() e onResume() serão chamados sucessivamente.</li>
+    <li>Por fim, a activity é destruída. </li>
+  </ol>
+</p>
+</div>
+
+

@@ -10,11 +10,38 @@ import java.util.*
 class StopwatchActivity : AppCompatActivity() {
     private var seconds = 0
     private var running = false
+    private var wasRunning = false
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_stopwatch)
+        if (savedInstanceState != null) {
+            seconds = savedInstanceState.getInt("seconds")
+            running = savedInstanceState.getBoolean("running")
+            wasRunning = savedInstanceState.getBoolean("wasRunning")
+        }
         runTimer()
+    }
+
+    override fun onSaveInstanceState(savedInstanceState: Bundle) {
+        super.onSaveInstanceState(savedInstanceState)
+        savedInstanceState.putInt("seconds", seconds)
+        savedInstanceState.putBoolean("running", running)
+        savedInstanceState.putBoolean("wasRunning", wasRunning)
+    }
+
+    override fun onStop() {
+        super.onStop()
+        wasRunning = running
+        running = false
+    }
+
+    override fun onStart() {
+        super.onStart()
+        if (wasRunning) {
+            running = true
+        }
     }
 
     fun onClickStart(view: View?) {
